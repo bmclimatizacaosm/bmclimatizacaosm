@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BM Climatização | Especialistas em Elétrica e Ar Condicionado</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Variáveis e Reset --- */
+        :root {
+            --primary-color: #0f172a;    /* Azul Slate Escuro (Sofisticado) */
+            --secondary-color: #3b82f6;  /* Azul Vibrante (Confiança/AC) */
+            --accent-color: #f59e0b;     /* Âmbar/Cobre (Energia/Destaque) */
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+            --radius: 12px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--primary-color);
+        }
+
+        a { text-decoration: none; transition: 0.3s ease; }
+        ul { list-style: none; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Barra Superior --- */
+        .top-bar {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 0;
+            font-size: 0.85rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-info span { margin-right: 20px; display: inline-flex; align-items: center; gap: 8px; }
+        .top-info i { color: var(--accent-color); }
+
+        /* --- Header / Navegação --- */
+        header {
+            background: var(--white);
+            padding: 1.2rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span { color: var(--secondary-color); }
+        .logo i { color: var(--accent-color); font-size: 1.2rem; }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover { color: var(--secondary-color); }
+
+        .btn-header {
+            background-color: var(--primary-color);
+            color: var(--white) !important;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600 !important;
+        }
+
+        .btn-header:hover { background-color: var(--secondary-color); transform: translateY(-2px); }
+
+        /* --- Hero Section (Impacto) --- */
+        .hero {
+            position: relative;
+            height: 80vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.7)), 
+                        url('https://plus.unsplash.com/premium_photo-1661515203486-ab9c1770f486?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-tag {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 6px 16px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            max-width: 600px;
+        }
+
+        .hero-btns { display: flex; gap: 15px; flex-wrap: wrap; }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 6px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border: 2px solid var(--secondary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--white);
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: var(--white);
+            border: 2px solid #25D366;
+        }
+
+        .btn-whatsapp:hover { background-color: #128C7E; border-color: #128C7E; }
+
+        /* --- Features Bar --- */
+        .features-bar {
+            background: var(--white);
+            transform: translateY(-50%);
+            box-shadow: var(--shadow);
+            border-radius: var(--radius);
+            padding: 40px;
+            margin-bottom: -40px; /* Adjust spacing */
+            position: relative;
+            z-index: 10;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .feature-item i {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .feature-item h3 { font-size: 1.1rem; margin-bottom: 10px; }
+        .feature-item p { font-size: 0.9rem; color: var(--text-light); }
+
+        /* --- Services Section --- */
+        .section { padding: 100px 0; }
+        .bg-light { background-color: var(--bg-light); }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .service-card:hover { transform: translateY(-10px); }
+
+        .card-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .card-content { padding: 30px; }
+
+        .card-content h3 { margin-bottom: 15px; font-size: 1.4rem; display: flex; align-items: center; justify-content: space-between; }
+        .card-content h3 i { color: var(--secondary-color); }
+
+        .card-list { margin: 20px 0; }
+        
+        .card-list li {
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-list li i { color: var(--secondary-color); font-size: 0.8rem; }
+
+        /* --- About Section --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-img-wrapper {
+            position: relative;
+        }
+
+        .about-img {
+            width: 100%;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .experience-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 30px;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .experience-badge strong { display: block; font-size: 2.5rem; line-height: 1; color: var(--accent-color); }
+
+        /* --- Coverage Area --- */
+        .coverage-box {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--secondary-color);
+        }
+
+        .city-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .city-tag {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* --- CTA Footer --- */
+        .cta-section {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #0b1120;
+            color: #94a3b8;
+            padding: 60px 0 20px;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 { color: var(--white); margin-bottom: 20px; font-size: 1.2rem; }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col ul li a { color: #94a3b8; }
+        .footer-col ul li a:hover { color: var(--white); padding-left: 5px; }
+
+        .social-links { display: flex; gap: 15px; margin-top: 20px; }
+        .social-links a {
+            width: 40px; height: 40px;
+            background: rgba(255,255,255,0.1);
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%;
+            color: var(--white);
+        }
+        .social-links a:hover { background: var(--secondary-color); }
+
+        /* --- WhatsApp Float --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 2000;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* --- Mobile --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Simples para esta demo */
+            .hero h1 { font-size: 2.2rem; }
+            .about-grid { grid-template-columns: 1fr; }
+            .experience-badge { position: relative; bottom: auto; right: auto; margin-top: -30px; margin-left: 20px; width: fit-content; }
+            .features-bar { transform: none; margin-bottom: 0; margin-top: -50px; }
+            .top-bar { display: none; } /* Limpar visual no mobile */
+            .hero { height: auto; padding: 100px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-info">
+                <span><i class="fas fa-map-marker-alt"></i> Santa Maria e Região, RS</span>
+                <span><i class="fas fa-clock"></i> Seg - Sáb: 08h às 19h (Emergências 24h)</span>
+            </div>
+            <div class="social-mini">
+                <a href="https://instagram.com/bmclimatizacaosm" target="_blank" style="color:white; margin-left: 10px;"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61587423682279" target="_blank" style="color:white; margin-left: 10px;"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="#" class="logo">
+                    <i class="fas fa-bolt"></i> BM <span>Climatização</span>
+                </a>
+                <nav class="nav-links">
+                    <a href="#home">Início</a>
+                    <a href="#about">Sobre</a>
+                    <a href="#services">Serviços</a>
+                    <a href="#coverage">Área de Atendimento</a>
+                    <a href="https://wa.me/5555991455162" class="btn-header" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Orçamento Rápido
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-tag">Especialistas em Elétrica e Refrigeração</span>
+                <h1>Soluções Técnicas com Garantia e Segurança.</h1>
+                <p>Instalação e manutenção de ar condicionado e sistemas elétricos. Atendemos Santa Maria e região com agilidade e padrão técnico superior.</p>
+                <div class="hero-btns">
+                    <a href="https://wa.me/5555991455162?text=Olá, preciso de um orçamento." target="_blank" class="btn btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> Chamar no WhatsApp
+                    </a>
+                    <a href="#services" class="btn btn-primary">
+                        Conhecer Serviços
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="features-bar">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Técnicos Certificados</h3>
+                    <p>Equipe treinada e qualificada nas normas NR10 e NR35.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-tools"></i>
+                    <h3>Garantia Total</h3>
+                    <p>Garantia em todas as instalações e peças de reposição.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Plantão 24h</h3>
+                    <p>Atendimento emergencial para elétrica e climatização.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-img-wrapper">
+                    <img src="https://plus.unsplash.com/premium_photo-1682147310420-01b35dfe0e73?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Técnico qualificado usando multímetro" class="about-img">
+                    <div class="experience-badge">
+                        <strong>10+</strong>
+                        Anos de<br>Experiência
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h4 style="color: var(--secondary-color); text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; margin-bottom: 10px;">Sobre a Empresa</h4>
+                    <h2 style="font-size: 2rem; margin-bottom: 20px;">Excelência Técnica em Santa Maria</h2>
+                    <p style="margin-bottom: 15px; color: var(--text-light);">A <strong>BM Climatização</strong> é referência em manutenção elétrica e climatização na região central do RS. Nosso foco não é apenas "consertar", mas oferecer soluções que garantam economia de energia e segurança para sua família ou empresa.</p>
+                    <p style="margin-bottom: 25px; color: var(--text-light);">Utilizamos ferramental de ponta e seguimos rigorosamente as normas técnicas vigentes.</p>
+                    
+                    <ul style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <li><i class="fas fa-check-circle" style="color: var(--secondary-color); margin-right: 8px;"></i> Atendimento Pontual</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--secondary-color); margin-right: 8px;"></i> Orçamento Transparente</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--secondary-color); margin-right: 8px;"></i> Limpeza pós-obra</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--secondary-color); margin-right: 8px;"></i> Nota Fiscal</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-light" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nossos Serviços</h2>
+                <p style="color: var(--text-light); font-size: 1.1rem;">Soluções completas para residências, comércios e indústrias.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="https://plus.unsplash.com/premium_photo-1661911309991-cc81afcce97d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Instalação e manutenção de quadros elétricos" class="card-img">
+                    <div class="card-content">
+                        <h3>Elétrica Predial <i class="fas fa-bolt"></i></h3>
+                        <p style="font-size: 0.9rem; color: #64748b;">Instalação e manutenção segura da sua rede elétrica.</p>
+                        <ul class="card-list">
+                            <li><i class="fas fa-chevron-right"></i> Troca de fiação antiga</li>
+                            <li><i class="fas fa-chevron-right"></i> Quadros de distribuição</li>
+                            <li><i class="fas fa-chevron-right"></i> Instalação de chuveiros</li>
+                            <li><i class="fas fa-chevron-right"></i> Iluminação em LED</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1691351582808-329cde17ffa2?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Técnico realizando manutenção em ar condicionado" class="card-img">
+                    <div class="card-content">
+                        <h3>Ar Condicionado <i class="fas fa-snowflake"></i></h3>
+                        <p style="font-size: 0.9rem; color: #64748b;">Conforto térmico com máxima eficiência energética.</p>
+                        <ul class="card-list">
+                            <li><i class="fas fa-chevron-right"></i> Instalação de Splits</li>
+                            <li><i class="fas fa-chevron-right"></i> Limpeza e Higienização</li>
+                            <li><i class="fas fa-chevron-right"></i> Recarga de Gás</li>
+                            <li><i class="fas fa-chevron-right"></i> Infraestrutura em obras</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Nota: Como você forneceu 4 imagens, usei 3 e deixei a 4ª de reserva.
+                Se quiser trocar a imagem do card "Manutenção", substitua o link abaixo. -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Profissional fazendo inspeção técnica" class="card-img">
+                    <div class="card-content">
+                        <h3>Manutenção Preventiva <i class="fas fa-clipboard-check"></i></h3>
+                        <p style="font-size: 0.9rem; color: #64748b;">Evite gastos maiores prevenindo problemas futuros.</p>
+                        <ul class="card-list">
+                            <li><i class="fas fa-chevron-right"></i> Contratos mensais (PMOC)</li>
+                            <li><i class="fas fa-chevron-right"></i> Laudos técnicos</li>
+                            <li><i class="fas fa-chevron-right"></i> Aumento de carga</li>
+                            <li><i class="fas fa-chevron-right"></i> Correção de curto-circuito</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="coverage">
+        <div class="container">
+            <div class="coverage-box">
+                <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: center;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <h2 style="font-size: 2rem; margin-bottom: 15px;">Área de Atendimento</h2>
+                        <p style="color: var(--text-light); margin-bottom: 20px;">Nossa equipe móvel está pronta para atender Santa Maria e as principais cidades vizinhas com deslocamento rápido.</p>
+                        <a href="https://wa.me/5555991455162" class="btn btn-primary" style="background: var(--primary-color); border-color: var(--primary-color);" target="_blank">
+                            Consultar Disponibilidade
+                        </a>
+                    </div>
+                    <div style="flex: 2; min-width: 300px;">
+                        <div class="city-tags">
+                            <div class="city-tag"><i class="fas fa-map-pin"></i> Santa Maria (Sede)</div>
+                            <div class="city-tag"><i class="fas fa-map-marker-alt"></i> Itaara</div>
+                            <div class="city-tag"><i class="fas fa-map-marker-alt"></i> Camobi</div>
+                            <div class="city-tag"><i class="fas fa-map-marker-alt"></i> São Pedro do Sul</div>
+                            <div class="city-tag"><i class="fas fa-map-marker-alt"></i> Silveira Martins</div>
+                            <div class="city-tag"><i class="fas fa-map-marker-alt"></i> Faxinal do Soturno</div>
+                            <div class="city-tag"><i class="fas fa-map-marker-alt"></i> Restinga Seca</div>
+                            <div class="city-tag"><i class="fas fa-map-marker-alt"></i> São Sepé</div>
+                            <div class="city-tag"><i class="fas fa-map-marker-alt"></i> Agudo</div>
+                        </div>
+                        <p style="margin-top: 15px; font-size: 0.85rem; font-style: italic; color: #94a3b8;">*Consulte taxas de deslocamento para outras localidades.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2 style="color: white; margin-bottom: 15px;">Precisa de um técnico agora?</h2>
+            <p style="margin-bottom: 30px; font-size: 1.2rem; opacity: 0.9;">Não arrisque sua segurança. Chame quem entende do assunto.</p>
+            <a href="https://wa.me/5555991455162" class="btn btn-whatsapp" style="background-color: var(--white); color: #25D366; border-color: var(--white);" target="_blank">
+                <i class="fab fa-whatsapp"></i> Falar com Técnico (55) 99145-5162
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="color: var(--white); margin-bottom: 20px;">
+                        <i class="fas fa-bolt" style="color: var(--accent-color);"></i> BM <span>Climatização</span>
+                    </div>
+                    <p>Qualidade, segurança e preço justo. Sua melhor opção em elétrica e refrigeração em Santa Maria.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61587423682279" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com/bmclimatizacaosm" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="mailto:bmclimatizacaosm@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Serviços Rápidos</h3>
+                    <ul>
+                        <li><a href="#services">Instalação de Ar</a></li>
+                        <li><a href="#services">Manutenção Elétrica</a></li>
+                        <li><a href="#services">Projetos Residenciais</a></li>
+                        <li><a href="#services">Limpeza de Ar</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contato</h3>
+                    <ul>
+                        <li><i class="fas fa-phone-alt" style="color: var(--accent-color); margin-right: 10px;"></i> (55) 99145-5162</li>
+                        <li><i class="fas fa-envelope" style="color: var(--accent-color); margin-right: 10px;"></i> bmclimatizacaosm@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt" style="color: var(--accent-color); margin-right: 10px;"></i> Santa Maria e Região, RS</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05);">
+                <p>&copy; <span id="currentYear"></span> BM Climatização. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5555991455162" class="whatsapp-float" title="Falar no WhatsApp" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Atualiza o ano no footer automaticamente
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
